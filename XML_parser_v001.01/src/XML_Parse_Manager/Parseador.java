@@ -4,15 +4,13 @@
  */
 package XML_Parse_Manager;
 
+
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-    
-    
+import org.w3c.dom.NodeList; 
     
     
     
@@ -41,35 +39,50 @@ public class Parseador {
             System.out.println("==========================");
 
 
-
-
+   
             
             for (int t = 1; t < nodes.getLength(); t++) 
             {
-                if (nodes.item(t).getNodeType() == Node.ELEMENT_NODE) 
-                    {
-                        System.out.println("-" + nodes.item(t).getNodeName() + "-");
-                        Childnodes = nodes.item(t).getChildNodes();
-                    }
                 
-                Child(t);
+                Parsea(t);
                     
-
-
-
-        }
+            }
+            
             
         }catch (Exception ex) {
         }
     }
 
 
+private void Parsea(int x)
+{
+    if(Childnodes.item(x).getChildNodes().getLength() == 0)
+    {
+            Padre(x);
+    }   
+    else
+    {
+            Hijo(x);
+    }
+        
+}
+    
+    
+private void Padre(int x)
+    {        
+            if (nodes.item(x).getNodeType() == Node.ELEMENT_NODE)
+            {
+                System.out.println("-" + nodes.item(x).getNodeName() + "-");
+                Childnodes = nodes.item(x).getChildNodes();
+            }            
+    }
 
-private void Child(int x)
+
+private void Hijo(int x)
     {
         for (int i = 0; i < nodes.item(x).getChildNodes().getLength(); i++) 
-                {
-                    if(Childnodes.item(i).getFirstChild() == Childnodes.item(i).getLastChild() )
+                {        
+                    if (Childnodes.item(i).getChildNodes().getLength() == 0)
                     {
                         if (Childnodes.item(i).getNodeType() == Node.ELEMENT_NODE) 
                         {
@@ -79,13 +92,19 @@ private void Child(int x)
                     }
                     else
                     {
-                        System.out.println("AQUI ENTRA EL ELSE");
                         
                     }
-                    
-
                 }
-        
     }
 
+
+private void XMLtoArray()
+{
+   
 }
+
+}
+
+
+
+
