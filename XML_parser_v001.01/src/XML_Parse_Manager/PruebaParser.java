@@ -26,7 +26,6 @@ public class PruebaParser{
 
 
 
-
             
             for (int t = 1; t < nodes.getLength(); t++) 
             {
