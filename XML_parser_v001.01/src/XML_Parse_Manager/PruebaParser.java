@@ -18,23 +18,43 @@ public class PruebaParser {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(stocks);
             doc.getDocumentElement().normalize();
-
             System.out.println("XML " + doc.getDocumentElement().getNodeName());
-            NodeList nodes = doc.getElementsByTagName("Cabecera");
+            NodeList nodes = doc.getDocumentElement().getChildNodes();
+            NodeList Childnodes = nodes.item(1).getChildNodes();
             System.out.println("==========================");
 
-            for (int i = 0; i < nodes.getLength(); i++) {
-                Node node = nodes.item(i);
 
-                if (node.getNodeType() == Node.ELEMENT_NODE) 
+
+
+
+            
+            for (int t = 1; t < nodes.getLength(); t++) 
+            {
+                if (nodes.item(t).getNodeType() == Node.ELEMENT_NODE) 
+                    {
+                        System.out.println("-" + nodes.item(t).getNodeName() + "-");
+                        Childnodes = nodes.item(t).getChildNodes();
+                    }
+                
+                
+                for (int i = 0; i < nodes.item(t).getChildNodes().getLength(); i++) 
                 {
-                    Element element = (Element) node;
-                    System.out.println("TAG 1: " + node.getNodeName(2).toString()) ;
-                    System.out.println("Proceso: " + getValue("CodigoDelProceso", element));
-                    System.out.println("Paso: " + getValue("CodigoDePaso", element));
-                    System.out.println("Paso: " + getValue("Codigo", element));
+                    if (Childnodes.item(i).getNodeType() == Node.ELEMENT_NODE) 
+                    {
+                        System.out.println(Childnodes.item(i).getNodeName() + " = "
+                                + Childnodes.item(i).getTextContent());
+                    }
+
                 }
             }
+
+
+//                    System.out.println(nodes)                   
+//                    System.out.println("Proceso: " + getValue("CodigoDelProceso", element));
+//                    System.out.println("Paso: " + getValue("CodigoDePaso", element));
+//                    System.out.println("Codigo: " + getValue("Codigo", element));
+            //}
+
         } catch (Exception ex) {
         }
     }
