@@ -11,6 +11,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
@@ -30,16 +32,48 @@ public class PruebaXMLtoArray {
             NodeList nodes = doc.getDocumentElement().getChildNodes();
             NodeList Childnodes = nodes.item(1).getChildNodes();
             System.out.println("==========================");
-            
-            
-            
-            System.out.println(doc.);
-            
-            
-            
-            
+
+
+
+            Element node = doc.getDocumentElement();
+
+            recurseThroughDoc(node);
+
+
         } catch (Exception ex) {
-           
         }
+    }
+
+    private static void recurseThroughDoc(Node node) {
+        NodeList nodeList = node.getChildNodes();
+
+
+        //Tiene hijos?
+        //Si Tiene Hijos
+        if (nodeList.getLength() > 0) {
+            
+            //Imprime Nodo
+            System.out.println(node.getNodeName());
+            
+            //Imprime Hijos
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                
+                    if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                        System.out.print(nodeList.item(i).getNodeName() + " = ");
+                        System.out.println(nodeList.item(i).getTextContent());
+                    }
+                
+                    recurseThroughDoc(nodeList.item(i));
+                }
+                System.out.flush();
+            }
+
+         
+        //No Tiene Hijos
+        else 
+        {
+            
+        }
+
     }
 }
