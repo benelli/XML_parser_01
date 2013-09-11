@@ -32,8 +32,6 @@ public class Parseador extends Archivo{
     System.out.println("==========================");
     Element node = doc.getDocumentElement();
     recurseThroughDoc(node);
-
-
  } 
 
     private static void recurseThroughDoc(Node node) {
