@@ -7,6 +7,8 @@ package XML_Parse_Manager;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -21,6 +23,9 @@ import org.w3c.dom.NodeList;
  */
 public class PruebaXMLtoArray {
 
+    static JFrame VMain;
+    
+    
     public static void main(String args[]) {
         try {
             File stocks = new File("C:\\prueba.xml");
@@ -28,14 +33,23 @@ public class PruebaXMLtoArray {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(stocks);
             doc.getDocumentElement().normalize();
-            System.out.println("XML " + doc.getDocumentElement().getNodeName());
-            System.out.println("==========================");
+//            System.out.println("XML " + doc.getDocumentElement().getNodeName());
+//            System.out.println("==========================");
 
 
 
             Element node = doc.getDocumentElement();
 
-            recurseThroughDoc(node);
+           
+           MainFrame a = new MainFrame();
+           
+           
+            a.setVisible(true);
+            
+            
+            
+            
+//            recurseThroughDoc(node);
 
 
         } catch (Exception ex) {
