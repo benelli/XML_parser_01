@@ -10,15 +10,17 @@ package XML_Parse_Manager;
  */
 public class Campo {
     Integer nivel;
+    Boolean padre;
     String nombre;
     String valor;
 
     public Campo() {
     }
     
-    public Campo(String nombre, String valor) {
+    public Campo(String nombre, String valor, Boolean padre) {
         this.nombre = nombre;
         this.valor = valor;
+        this.padre = padre;
     }
 
     
