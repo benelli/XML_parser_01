@@ -5,15 +5,10 @@
 package XML_Parse_Manager;
 
 import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -27,6 +22,13 @@ public class PruebaXMLtoArray {
     
     
     public static void main(String args[]) {
+        
+        MainFrame Vmain = new MainFrame();
+           
+           
+          
+        
+        
         try {
             File stocks = new File("C:\\prueba.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -38,14 +40,10 @@ public class PruebaXMLtoArray {
 
 
 
-            Element node = doc.getDocumentElement();
+//            Element node = doc.getDocumentElement();
 
            
-           MainFrame a = new MainFrame();
            
-           
-            a.setVisible(true);
-            
             
             
             

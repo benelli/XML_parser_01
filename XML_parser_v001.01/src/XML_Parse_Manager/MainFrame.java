@@ -1,26 +1,24 @@
-package XML_Parse_Manager;
-
-
-import javax.swing.JFrame;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package XML_Parse_Manager;
+
+import java.io.File;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 
 /**
  *
  * @author atorralba.ext
  */
-public class MainFrame extends javax.swing.JPanel {
+public class MainFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
-        
-        
     }
 
     /**
@@ -32,120 +30,148 @@ public class MainFrame extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        VCargaXML = new javax.swing.JFrame();
-        jFileChooser1 = new javax.swing.JFileChooser();
-        TxtCUPS = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        BtSearch = new javax.swing.JButton();
+        VSelec = new javax.swing.JFrame();
+        VArchivo = new javax.swing.JFileChooser();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        LProceso = new javax.swing.JLabel();
-        LPaso = new javax.swing.JLabel();
-        BtCargaXML = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        TxtRuta = new javax.swing.JTextField();
 
-        jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFileChooser1ActionPerformed(evt);
+        VSelec.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        VSelec.setPreferredSize(new java.awt.Dimension(600, 600));
+        VSelec.setResizable(false);
+        VSelec.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                VSelecFocusLost(evt);
             }
         });
 
-        javax.swing.GroupLayout VCargaXMLLayout = new javax.swing.GroupLayout(VCargaXML.getContentPane());
-        VCargaXML.getContentPane().setLayout(VCargaXMLLayout);
-        VCargaXMLLayout.setHorizontalGroup(
-            VCargaXMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jFileChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        VCargaXMLLayout.setVerticalGroup(
-            VCargaXMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jFileChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("CUPS");
-
-        BtSearch.setText("Buscar");
-
-        jLabel2.setText("Paso : ");
-
-        jLabel3.setText("Proceso : ");
-
-        LProceso.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-
-        LPaso.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-
-        BtCargaXML.setText("Cargar XML");
-        BtCargaXML.addActionListener(new java.awt.event.ActionListener() {
+        VArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtCargaXMLActionPerformed(evt);
+                VArchivoActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout VSelecLayout = new javax.swing.GroupLayout(VSelec.getContentPane());
+        VSelec.getContentPane().setLayout(VSelecLayout);
+        VSelecLayout.setHorizontalGroup(
+            VSelecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(VArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        VSelecLayout.setVerticalGroup(
+            VSelecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(VArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("Cargar XML");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BtCargaXML)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtCUPS, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtSearch)))
-                .addGap(61, 61, 61)
-                .addComponent(jLabel3)
+                .addContainerGap()
+                .addComponent(TxtRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LProceso, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LPaso, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88))
+                .addComponent(jButton1)
+                .addContainerGap(408, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtCUPS, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(BtSearch)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(LProceso)
-                    .addComponent(LPaso))
-                .addGap(12, 12, 12)
-                .addComponent(BtCargaXML)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jButton1)
+                    .addComponent(TxtRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(434, Short.MAX_VALUE))
+                .addContainerGap(402, Short.MAX_VALUE))
         );
+
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtCargaXMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCargaXMLActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        JDialog a = new JDialog();
+        a.add(VArchivo);
+        
+        if(VArchivo.showOpenDialog(a) == JFileChooser.APPROVE_OPTION)
+        {
+            File archivo = VArchivo.getSelectedFile();
+        
+            archivo.getAbsolutePath();
 
-       
-    }//GEN-LAST:event_BtCargaXMLActionPerformed
+            TxtRuta.setText(archivo.toString());
+        }
+        
+        
+        
+        
+//        VSelec.setVisible(true);
+        VSelec.setLocation(this.getLocation());
+        VSelec.setSize(800,400);
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
+    private void VArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VArchivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFileChooser1ActionPerformed
+    }//GEN-LAST:event_VArchivoActionPerformed
 
+    private void VSelecFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_VSelecFocusLost
+        
+    }//GEN-LAST:event_VSelecFocusLost
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainFrame().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtCargaXML;
-    private javax.swing.JButton BtSearch;
-    private javax.swing.JLabel LPaso;
-    private javax.swing.JLabel LProceso;
-    private javax.swing.JTextField TxtCUPS;
-    private javax.swing.JFrame VCargaXML;
-    private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField TxtRuta;
+    private javax.swing.JFileChooser VArchivo;
+    private javax.swing.JFrame VSelec;
+    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
