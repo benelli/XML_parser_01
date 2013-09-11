@@ -29,8 +29,6 @@ public class PruebaXMLtoArray {
             Document doc = dBuilder.parse(stocks);
             doc.getDocumentElement().normalize();
             System.out.println("XML " + doc.getDocumentElement().getNodeName());
-            NodeList nodes = doc.getDocumentElement().getChildNodes();
-            NodeList Childnodes = nodes.item(1).getChildNodes();
             System.out.println("==========================");
 
 
@@ -46,34 +44,19 @@ public class PruebaXMLtoArray {
 
     private static void recurseThroughDoc(Node node) {
         NodeList nodeList = node.getChildNodes();
-
-
-        //Tiene hijos?
-        //Si Tiene Hijos
-        if (nodeList.getLength() > 0) {
-            
-            //Imprime Nodo
-            System.out.println(node.getNodeName());
-            
-            //Imprime Hijos
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                
-                    if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
-                        System.out.print(nodeList.item(i).getNodeName() + " = ");
-                        System.out.println(nodeList.item(i).getTextContent());
-                    }
-                
-                    recurseThroughDoc(nodeList.item(i));
-                }
-                System.out.flush();
+        if (nodeList.getLength() == 1) {
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                System.out.print(node.getNodeName() + " = ");
+                System.out.println(node.getTextContent());
             }
-
-         
-        //No Tiene Hijos
-        else 
-        {
-            
+        } else {
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                System.out.println("--" + node.getNodeName() + "--");
+            }
+            for (int i = 1; i < nodeList.getLength(); i++) {
+                recurseThroughDoc(nodeList.item(i));
+            }
+            System.out.flush();
         }
-
     }
 }
